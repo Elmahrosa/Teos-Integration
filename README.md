@@ -1,11 +1,39 @@
-# Teos-Integration
+# 🛠️ Teos-Integration
 
 ![CI](https://github.com/Elmahrosa/Teos-Integration/actions/workflows/ci.yml/badge.svg)
-![License: PolyForm NC + TESL](https://img.shields.io/badge/license-PolyForm%20NC%20%2B%20TESL-blue)
-![Developer Program](https://img.shields.io/badge/GitHub-Developer%20Program-green)
+[![License](https://img.shields.io/github/license/Elmahrosa/Teos-Integration)](LICENSE)
+![GitHub issues](https://img.shields.io/github/issues/Elmahrosa/Teos-Integration)
+![GitHub stars](https://img.shields.io/github/stars/Elmahrosa/Teos-Integration)
+![GitHub forks](https://img.shields.io/github/forks/Elmahrosa/Teos-Integration)
 
 **Official TEOS Network Ecosystem Monorepo**  
 A sovereign integration layer for **compliance, governance automation, and ecosystem protection** across TEOS Egypt repositories.
+
+---
+
+## 📌 Table of Contents
+
+1. [Overview](#-overview)  
+2. [Repository Structure](#-repository-structure)  
+3. [Features](#-features)  
+4. [Tech Stack](#-tech-stack)  
+5. [Roadmap](#-roadmap)  
+6. [Getting Started](#-getting-started)  
+7. [Contributing](#-contributing)  
+8. [License](#-license)  
+9. [Author](#-author)  
+
+---
+
+## 🏛 Overview
+
+**Teos-Integration** is the core automation and compliance engine behind the **Elmahrosa GitHub Integration App** — enforcing governance rules and protecting repository integrity across the TEOS Egypt ecosystem.
+
+It ensures:
+- Immutable & verifiable releases  
+- Verified contributor commit sign-offs  
+- Automated governance labeling  
+- Audit transparency & logging
 
 ---
 
@@ -18,109 +46,135 @@ Teos-Integration/
 ├── LICENSE
 ├── .gitignore
 ├── config/
-│   └── settings.yml        # Stores API keys and webhook secrets (never commit real values)
+│   └── settings.yml        # API keys & webhook secrets (never commit real secrets)
 ├── src/
 │   ├── app.js              # Main backend entry (Express or FastAPI)
 │   ├── routes/
-│   │   └── webhook.js      # GitHub webhook event handler
+│   │   └── webhook.js      # GitHub webhook handler
 │   ├── services/
-│   │   └── githubApi.js    # GitHub REST & GraphQL API interface
+│   │   └── githubApi.js    # GitHub REST & GraphQL API calls
 │   └── utils/
-│       └── compliance.js   # Governance rules (DCO, immutable releases, repo safety guards)
+│       └── compliance.js   # Governance rules & compliance logic
 ├── tests/
-│   └── integration.test.js # Webhook + GitHub API integration tests
+│   └── integration.test.js # Webhook + service integration tests
 ├── docs/
-│   └── architecture.md     # System design and integration flow
+│   └── architecture.md     # Architecture & flow explanation
 └── scripts/
 └── setupLabels.js      # Bulk creation of governance labels
 
-```
+````
 
 ---
 
-## 🏛 Overview
-
-**Teos-Integration** is the core automation and compliance engine behind the **Elmahrosa GitHub Integration App**, enforcing non-destructive governance rules across the TEOS Egypt ecosystem.
-
-This layer ensures:
-- **Immutable releases**
-- **Verified contributions (DCO signed commits)**
-- **Protected repository ownership**
-- **Automated audit transparency**
-
----
-
-## ✨ Core Capabilities
+## ✨ Features
 
 ### Governance Automation
-- Enforces **DCO (commit sign-off required)**
-- Applies **immutable & non-destructive release policies**
-- Auto-creates and assigns governance labels:
+- ✅ Enforces **Developer Certificate of Origin (DCO)** commit sign-offs  
+- 🔒 Immutable & non-destructive release policies  
+- 🏷️ Auto-label governance tags:
   - `compliance`
   - `SDG-mapping`
   - `treasury`
 
-### Ecosystem Protection
-- Prevents:
-  - ❌ Repository deletion
-  - ❌ Unauthorized transfers
-  - ❌ Destructive ownership or visibility changes
+### Protection Guardrails
+- Blocks:
+  - ❌ Repository deletion  
+  - ❌ Unauthorized transfers  
+  - ❌ Destructive ownership changes
 
-### Transparency & Auditing
-- Generates:
-  - Audit dashboards
-  - Governance logs
-  - Ecosystem compliance tracking
+### Transparency & Audit
+- 📊 Auto-generated audit logs  
+- 📋 Governance compliance dashboards  
+- Ecosystem-wide integrity checks
 
 ---
 
 ## ⚙ Tech Stack
 
-- **Backend:** Node.js (Express) or Python (FastAPI)
-- **APIs:** GitHub REST + GraphQL
-- **Triggers:** GitHub App Webhooks
-- **Testing:** Jest or PyTest integration tests
+- **Backend:** Node.js (Express) or Python (FastAPI)  
+- **APIs:** GitHub REST + GraphQL  
+- **Triggers:** GitHub App Webhooks  
+- **Testing:** Jest or PyTest for integration tests
 
 ---
 
-## 🚀 Deployment & Setup
+## 📈 Roadmap
 
-1. Register a **GitHub App** under the **Elmahrosa organization**
-2. Set webhook callback URL to your backend endpoint
-3. Add required secrets in:
+| Milestone | Status |
+|-----------|--------|
+| Support multi-org compliance | 🚧 In progress |
+| Expand audit dashboard UI | 🟡 Planned |
+| Add dynamic governance rules editor | 🟡 Planned |
+| Multi-environment deployment templates | 🟢 Backlog |
+| Add coverage & test badges | 🟢 Backlog |
 
-```
-
-config/settings.yml
-
-````
-
-4. Deploy backend using:
-- Docker
-- Heroku
-- Vercel Serverless
-- Cloud VM
+> *Legend:* 🟢 Backlog • 🟡 Planned • 🚧 In progress • ✅ Completed
 
 ---
 
-## 📊 Architecture Flow
+## 🚀 Getting Started
 
-```mermaid
-flowchart TD
-    A[GitHub Repo Events] --> B[Webhooks]
-    B --> C[Elmahrosa Backend]
-    C -->|Run compliance checks| D[GitHub API]
-    D --> E[Audit Dashboard]
+### Prerequisites
+
+- GitHub App registration under the **Elmahrosa** organization  
+- Backend host (Vercel / Heroku / Docker / Cloud VM)
+
+### Setup
+
+1. Clone the repo
+   ```bash
+   git clone https://github.com/Elmahrosa/Teos-Integration.git
 ````
+
+2. Create your GitHub App and configure webhook URL
+
+3. Add secrets to:
+
+   ```
+   config/settings.yml
+   ```
+
+4. Deploy your service:
+
+   * Docker
+   * Heroku
+   * Vercel Serverless
+   * Cloud VM
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Before submitting, please:
+
+1. **Fork** the repository
+2. **Create a feature branch**
+
+   ```bash
+   git checkout -b feature-name
+   ```
+3. **Write tests** where applicable
+4. **Commit with clear history**
+
+   ```bash
+   git commit -m "feat: add new feature"
+   ```
+5. **Open a Pull Request**
+
+> Tip: For major changes, discuss via issue before working on features. ([GitHub][1])
 
 ---
 
 ## 📜 License
 
-Dual-governance licensing model:
+This project uses a **dual-governance license**:
 
-* **PolyForm Noncommercial** → Open civic and community usage
-* **TESL (TEOS Egypt Sovereign License)** → Commercial rights reserved exclusively for the Founder
+* **PolyForm Noncommercial** – For open civic & community development
+* **TESL (TEOS Egypt Sovereign License)** – Commercial rights reserved for the Founder
+
+This means:
+🔹 Community use is permitted under noncommercial terms
+🔹 Commercial usage rights are exclusive and require agreement
 
 ---
 
@@ -128,9 +182,10 @@ Dual-governance licensing model:
 
 **Ayman Seif**
 Founder — TEOS Egypt
-Sovereign Blockchain Infrastructure for Compliance, Governance & Digital Public Infrastructure (DPI)
+Sovereign blockchain infrastructure for compliance, governance & DPI
 
 ---
 
-```
-```
+✅ *Thank you for exploring Teos-Integration!*
+Feel free to spread the word, star the repo ⭐ and contribute!
+
