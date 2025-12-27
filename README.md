@@ -1,27 +1,102 @@
 # Teos-Integration
-Official Monorepo for TEOS Network Ecosystem — Integration layer for compliance, governance, and automation.
-# Teos-Integration
 
-## Overview
-This repository hosts the **Elmahrosa GitHub Integration App**, a compliance-first bot that enforces governance rules across all TEOS Egypt repositories.
+**Official Monorepo for TEOS Network Ecosystem**  
+Integration layer for compliance, governance, and automation across TEOS Egypt infrastructure.
 
-## Features
-- ✅ Require commit sign-off (DCO compliance)
-- ✅ Enforce immutable releases
-- ✅ Auto-apply governance labels (`compliance`, `SDG-mapping`, `treasury`)
-- ✅ Block destructive actions (delete/transfer repos)
-- ✅ Generate audit dashboards for transparency
+---
 
-## Tech Stack
-- Node.js (Express) or Python (FastAPI)
-- GitHub REST & GraphQL APIs
-- Webhooks for repo events
+## 📁 Repository Structure
 
-## Setup
-1. Register a GitHub App under the Elmahrosa organization.
-2. Configure webhook URL → `https://yourdomain.com/webhook`.
-3. Add secrets in `config/settings.yml`.
-4. Deploy backend (Heroku, Vercel, or Docker).
+```
 
-## License
-PolyForm Noncommercial + TESL (Founder-only commercial rights).
+Teos-Integration/
+├── README.md
+├── LICENSE
+├── .gitignore
+├── config/
+│   └── settings.yml        # API keys, webhook secrets (never commit real secrets)
+├── src/
+│   ├── app.js              # Express/Node.js or FastAPI main entry
+│   ├── routes/
+│   │   └── webhook.js      # Handles GitHub webhook events
+│   ├── services/
+│   │   └── githubApi.js    # Functions to call GitHub REST/GraphQL APIs
+│   └── utils/
+│       └── compliance.js   # Immutable releases, commit sign-off logic
+├── tests/
+│   └── integration.test.js # Basic tests for webhook + API calls
+├── docs/
+│   └── architecture.md     # Architecture & integration flow
+└── scripts/
+└── setupLabels.js      # Bulk creation of governance labels
+
+```
+
+---
+
+## 🏛 Overview
+
+This monorepo powers the **Elmahrosa GitHub Integration App** — a compliance-first governance automation layer designed to enforce sovereign rules across the TEOS Egypt ecosystem.
+
+---
+
+## ✨ Core Capabilities
+
+- **DCO (Developer Certificate of Origin) enforcement** – commit sign-off required  
+- **Immutable & non-destructive release policy**
+- **Automatic governance labeling**, including:
+  - `compliance`
+  - `SDG-mapping`
+  - `treasury`
+- **Protection guardrails**:
+  - Blocks repo deletion
+  - Prevents unauthorized transfers
+  - Disables destructive ownership changes
+- **Transparency layer**:
+  - Auto-generated audit dashboards
+  - Public governance logs
+  - Ecosystem compliance tracking
+
+---
+
+## ⚙ Tech Stack
+
+- **Backend:** Node.js (Express) or Python (FastAPI)
+- **APIs:** GitHub REST + GraphQL
+- **Automation:** GitHub App Webhooks
+- **Testing:** Integration tests for webhook & API validation
+
+---
+
+## 🚀 Deployment & Setup
+
+1. Create and register a **GitHub App** under the **Elmahrosa** organization
+2. Set webhook URL to your backend service endpoint
+3. Configure required secrets inside:
+```
+
+config/settings.yml
+
+```
+4. Deploy using one of the supported environments:
+- Docker
+- Heroku
+- Vercel Serverless
+- Cloud VM
+
+---
+
+## 📜 License
+
+This project operates under a dual-license governance model:
+
+- **PolyForm Noncommercial** – open usage for community & civic development
+- **TESL (TEOS Egypt Sovereign License)** – commercial rights reserved exclusively for the Founder
+
+---
+
+**Ayman Seif**  
+Founder — TEOS Egypt  
+Sovereign Blockchain Infrastructure for Compliance, Governance & Digital Public Infrastructure (DPI)
+
+```
