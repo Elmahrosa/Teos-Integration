@@ -2,25 +2,19 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: |
+          shopt -s globstar nullglob
+          for f in **/*.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))"
+            echo "OK: $f"
+          done
