@@ -1,169 +1,157 @@
-# 🛠️ Teos-Integration
-
-![CI](https://github.com/Elmahrosa/Teos-Integration/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Elmahrosa/Teos-Integration/actions/workflows/ci.yml/badge.svg?branch=main)
 [![License](https://img.shields.io/github/license/Elmahrosa/Teos-Integration)](LICENSE)
 ![GitHub issues](https://img.shields.io/github/issues/Elmahrosa/Teos-Integration)
 ![GitHub stars](https://img.shields.io/github/stars/Elmahrosa/Teos-Integration)
 ![GitHub forks](https://img.shields.io/github/forks/Elmahrosa/Teos-Integration)
 
-**Official TEOS Network Ecosystem Monorepo**  
-A sovereign integration layer for **compliance, governance automation, and ecosystem protection** across TEOS Egypt repositories.
+# 🛠 Teos Integration
 
----
+**Teos-Integration** defines the **official integration architecture and adapter patterns** for connecting external systems to the **TEOS sovereign framework**.
 
-## 📌 Table of Contents
-1. [Overview](#-overview)  
-2. [Repository Structure](#-repository-structure)  
-3. [Features](#-features)  
-4. [Tech Stack](#-tech-stack)  
-5. [Roadmap](#-roadmap)  
-6. [Getting Started](#-getting-started)  
-7. [Contributing](#-contributing)  
-8. [License](#-license)  
-9. [Author](#-author)  
+This repository is **policy-first**, **audit-ready**, and **chain-agnostic**, serving as the **compliance-safe boundary** between external systems and TEOS core modules.
 
 ---
 
 ## 🏛 Overview
-**Teos-Integration** is the core automation and compliance engine behind the **Elmahrosa GitHub Integration App** — enforcing governance rules and protecting repository integrity across the TEOS Egypt ecosystem.
 
-It ensures:
-- Immutable & verifiable releases  
-- Verified contributor commit sign-offs  
-- Automated governance labeling  
-- Audit transparency & logging  
+Teos-Integration is the **canonical integration reference** for the TEOS ecosystem.  
+It standardizes **how external applications, partners, and institutions interact** with TEOS while preserving:
+
+- Governance integrity  
+- Security boundaries  
+- Audit traceability  
+
+This repository is intentionally **conservative by design**.
+
+---
+
+## ✅ What This Repository Is
+
+- A **reference integration layer**
+- A **pattern library** for adapters
+- A **policy & validation boundary**
+- An **audit and evidence producer**
+- A foundation for **partner and institutional integrations**
+
+---
+
+## ❌ What This Repository Is NOT
+
+- ❌ Not a wallet  
+- ❌ Not a chain SDK  
+- ❌ Not business-domain logic  
+- ❌ Not a custody solution  
+- ❌ Not a smart contract repository  
+
+---
+
+## 🔐 Core Principles
+
+- Deterministic behavior  
+- Explicit, versioned policies  
+- Deny-by-default for privileged actions  
+- No private keys or secrets in code  
+- Evidence recorded **before and after** execution  
+
+---
+
+## 🧩 Architecture
+
+The integration flow is fully documented here:
+
+📄 **`docs/architecture.md`**
+
+At a high level:
+- External systems never touch chains directly  
+- All requests pass through adapters and policy gates  
+- All sensitive actions produce audit evidence  
+
+---
+
+## 📚 Documentation Index
+
+- **Integration Architecture** → `docs/architecture.md`  
+- **Integration Matrix** → `docs/integration-matrix.md`  
+- **Payload Schemas** → `docs/payload-schemas.md`  
+- **Evidence & Audit Artifacts** → `docs/evidence-format.md`  
 
 ---
 
 ## 📁 Repository Structure
+
 ```
+
 Teos-Integration/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── config/
-│   └── settings.yml        # API keys & webhook secrets (never commit real secrets)
-├── src/
-│   ├── app.js              # Main backend entry (Express or FastAPI)
-│   ├── routes/
-│   │   └── webhook.js      # GitHub webhook handler
-│   ├── services/
-│   │   └── githubApi.js    # GitHub REST & GraphQL API calls
-│   └── utils/
-│       └── compliance.js   # Governance rules & compliance logic
-├── tests/
-│   └── integration.test.js # Webhook + service integration tests
+├── .github/
+│   └── workflows/ci.yml
+├── adapters/              # External-system adapters
+├── schemas/               # Request/response schemas
+├── mappers/               # Normalization utilities
+├── evidence/              # Audit artifact builders
 ├── docs/
-│   └── architecture.md     # Architecture & flow explanation
-└── scripts/
-    └── setupLabels.js      # Bulk creation of governance labels
+│   ├── README.md
+│   ├── architecture.md
+│   ├── integration-matrix.md
+│   ├── payload-schemas.md
+│   └── evidence-format.md
+├── .env.example
+├── CHANGELOG.md
+├── README.md
+└── LICENSE
+
 ```
 
 ---
 
-## ✨ Features
+## 🧪 CI & Quality
 
-### Governance Automation
-- ✅ Enforces **Developer Certificate of Origin (DCO)** commit sign-offs  
-- 🔒 Immutable & non-destructive release policies  
-- 🏷️ Auto-label governance tags: `compliance`, `SDG-mapping`, `treasury`  
-
-### Protection Guardrails
-- ❌ Blocks repository deletion  
-- ❌ Prevents unauthorized transfers  
-- ❌ Disables destructive ownership changes  
-
-### Transparency & Audit
-- 📊 Auto-generated audit logs  
-- 📋 Governance compliance dashboards  
-- 🌍 Ecosystem-wide integrity checks  
+- GitHub Actions CI validates repository integrity
+- JSON configuration files are syntax-checked
+- CI is intentionally lightweight and non-blocking
+- Badge reflects real workflow status
 
 ---
 
-## ⚙ Tech Stack
-- **Backend:** Node.js (Express) or Python (FastAPI)  
-- **APIs:** GitHub REST + GraphQL  
-- **Triggers:** GitHub App Webhooks  
-- **Testing:** Jest or PyTest for integration tests  
+## 🚦 Status
 
----
+This repository is **stable** and intended for:
 
-## 📈 Roadmap
-| Milestone | Status |
-|-----------|--------|
-| Support multi-org compliance | 🚧 In progress |
-| Expand audit dashboard UI | 🟡 Planned |
-| Add dynamic governance rules editor | 🟡 Planned |
-| Multi-environment deployment templates | 🟢 Backlog |
-| Add coverage & test badges | 🟢 Backlog |
+- Internal TEOS modules  
+- Partner and ecosystem integrations  
+- Institutional and civic deployments  
+- Audit and compliance review  
 
-> *Legend:* 🟢 Backlog • 🟡 Planned • 🚧 In progress • ✅ Completed  
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- GitHub App registration under the **Elmahrosa** organization  
-- Backend host (Vercel / Heroku / Docker / Cloud VM)  
-
-### Setup
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/Elmahrosa/Teos-Integration.git
-   ```
-2. Create your GitHub App and configure webhook URL  
-3. Add secrets to:
-   ```
-   config/settings.yml
-   ```
-4. Deploy your service with:
-   - Docker  
-   - Heroku  
-   - Vercel Serverless  
-   - Cloud VM  
+Active development focuses on **documentation depth and integration clarity**, not feature expansion.
 
 ---
 
 ## 🤝 Contributing
-We welcome contributions! Before submitting, please:
 
-1. **Fork** the repository  
-2. **Create a feature branch**  
-   ```bash
-   git checkout -b feature-name
-   ```
-3. **Write tests** where applicable  
-4. **Commit with clear history**  
-   ```bash
-   git commit -m "feat: add new feature"
-   ```
-5. **Open a Pull Request**  
+Contributions are welcome **within governance constraints**.
 
-> Tip: For major changes, discuss via issue before working on features.  
+Before contributing:
+1. Review the architecture and policy documents  
+2. Keep changes minimal and auditable  
+3. Do not introduce secrets or custody logic  
+4. Follow the org-level `CONTRIBUTING.md` and `SECURITY.md`
 
 ---
 
 ## 📜 License
-This project uses a **dual-governance license**:
-- **PolyForm Noncommercial** – For open civic & community development  
-- **TESL (TEOS Egypt Sovereign License)** – Commercial rights reserved for the Founder  
 
-This means:  
-🔹 Community use is permitted under noncommercial terms  
-🔹 Commercial usage rights are exclusive and require agreement  
+This project uses a **dual-license model**:
+
+- **PolyForm Noncommercial** — community and civic use  
+- **TESL (TEOS Egypt Sovereign License)** — commercial rights reserved  
+
+Commercial or institutional use requires explicit authorization.
 
 ---
 
 ## 👤 Author
+
 **Ayman Seif**  
-Founder — TEOS Egypt  
-Sovereign blockchain infrastructure for compliance, governance & DPI  
-
----
-
-✅ *Thank you for exploring Teos-Integration!*  
-⭐ Star the repo, contribute, and help build sovereign civic-first infrastructure.  
-```
+Founder — **TEOS Egypt**  
+Sovereign blockchain infrastructure for governance, compliance, and digital public infrastructure (DPI)
 
 ---
